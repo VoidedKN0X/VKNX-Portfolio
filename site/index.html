@@ -80,7 +80,45 @@
   @media (max-width:640px){.contact .grid{grid-template-columns:1fr}}
   .contact .label{font:12px "JetBrains Mono",monospace;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
   footer{padding:32px 0 48px;color:var(--muted);font-size:13px}
-  @media (max-width:640px){ nav .links{display:none} .timeline li{grid-template-columns:1fr;gap:4px} header{padding:56px 0 44px} }
+  nav .links{display:flex;gap:22px}
+  .flow-m{display:none}
+  @media (max-width:640px){
+    .wrap{padding:0 18px}
+    nav .wrap{flex-wrap:wrap;height:auto;padding-top:10px;gap:0}
+    nav .brand{width:100%;margin-bottom:6px}
+    nav .links{width:calc(100% + 36px);margin:0 -18px;padding:0 18px 10px;gap:6px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+    nav .links::-webkit-scrollbar{display:none}
+    nav .links a{flex:none;padding:6px 12px;border:1px solid var(--line);border-radius:999px;font-size:13px}
+    header{padding:36px 0 40px}
+    header .role{font-size:17px;margin:10px 0 18px}
+    header p.intro{font-size:16px;margin-bottom:22px}
+    .me{width:120px;height:120px}
+    .btns .btn{flex:1;text-align:center;padding:12px 14px}
+    section{padding:48px 0}
+    section h2{font-size:26px}
+    section .lead{font-size:15px;margin-bottom:24px}
+    .card{padding:16px 18px}
+    .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+    .stat b{font-size:28px}
+    .stat span{font-size:12px;line-height:1.35;display:block}
+    .diagram{display:none}
+    .flow-m{display:block;margin-bottom:18px}
+    .apps{grid-template-columns:1fr 1fr;gap:10px}
+    .app{padding:12px 14px}
+    .app h3{font-size:13px}
+    .app p{font-size:12.5px;line-height:1.45}
+    .chip{font-size:11px}
+    .timeline li{grid-template-columns:1fr;gap:4px;padding:14px 0}
+    .timeline h3{font-size:16px}
+    .note{font-size:14px;padding:14px 16px}
+  }
+  .flow-m .step{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 16px}
+  .flow-m .step.hl{border-color:var(--accent)}
+  .flow-m .step b{display:block;font-family:"Space Grotesk",sans-serif;font-size:15px}
+  .flow-m .step span{color:var(--muted);font-size:13px}
+  .flow-m .arrow{text-align:center;color:var(--muted);font-size:18px;line-height:1;padding:6px 0}
+  .flow-m .side{margin:8px 0 0 18px;padding:8px 12px;border-left:2px solid var(--line);color:var(--muted);font-size:13px}
+  .flow-m .svc{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
   @media print{
     @page{size:A4;margin:14mm}
     :root{--bg:#fff;--panel:#f7f6fb;--line:#dcd9e6;--text:#16151c;--muted:#55536a;--accent:#6d4fd8;--accent-dim:#ece6ff}
@@ -98,7 +136,7 @@
 <body>
 <nav><div class="wrap">
   <span class="brand">VoidedKN0X</span>
-  <span class="links" style="display:flex;gap:22px">
+  <span class="links">
     <a href="#over-mij">Over mij</a><a href="#homelab">Homelab</a><a href="#apps">Apps</a><a href="#ervaring">Ervaring</a><a href="#opleiding">Opleiding</a><a href="#contact">Contact</a>
   </span>
 </div></nav>
@@ -149,6 +187,17 @@
     <div class="stat"><b>±30</b><span>diensten in containers en VM's</span></div>
     <div class="stat"><b>1</b><span>eigen domein: vkhub.org</span></div>
     <div class="stat"><b>20+</b><span>eigen Android-apps om alles te beheren</span></div>
+  </div>
+  <div class="flow-m" aria-label="Schema van het homelab">
+    <div class="step"><b>Internet</b><span>eigen domein</span></div>
+    <div class="arrow">↓</div>
+    <div class="step hl"><b>OpenWrt-router</b><span>DNS-filtering · VPN</span>
+      <div class="side">Apart wifinetwerk via een access point</div></div>
+    <div class="arrow">↓</div>
+    <div class="step"><b>Reverse proxy</b><span>HTTPS voor alle diensten</span></div>
+    <div class="arrow">↓</div>
+    <div class="step hl"><b>Virtualisatieserver</b><span>±30 diensten in containers en VM's</span>
+      <div class="svc"><span class="chip">Centrale opslag</span><span class="chip">Foto-back-up</span><span class="chip">Media</span><span class="chip">Camerabewaking</span><span class="chip">Wachtwoordbeheer</span><span class="chip">Chat</span><span class="chip">Documentbeheer</span><span class="chip">Domotica</span><span class="chip">Meldingen</span><span class="chip">+ ±20 meer</span></div></div>
   </div>
   <div class="diagram">
     <svg viewBox="0 0 900 330" role="img" aria-label="Schema van het homelab: internet, router, reverse proxy, server met diensten">
