@@ -1,0 +1,9 @@
+[Unit]
+Description=Portfolio bijwerken vanaf GitHub
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=deploy
+ExecStart=/usr/local/bin/portfolio-update

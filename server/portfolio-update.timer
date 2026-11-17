@@ -1,0 +1,9 @@
+[Unit]
+Description=Portfolio elke 10 minuten bijwerken
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=10min
+
+[Install]
+WantedBy=timers.target
